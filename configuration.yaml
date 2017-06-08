@@ -1,0 +1,121 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: xxxxxxxxx
+  longitude: xxxxxxxxx
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 82
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: xxxxxxxxxxxxxx
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: xxxxxxxxxx
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: hermis.ddns.net:55512
+
+# Checks for available updates
+updater:
+
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+switch:
+  - platform: rpi_gpio
+    ports:
+      17: g17
+      18: g18
+      27: g27
+      22: g22
+      23: G23_P16
+      24: g24
+      25: g25
+      5: G5_P29
+      26: G26_P37
+      4: G4_P7
+    invert_logic: true
+  - platform: template
+    switches:
+      ch1:
+        friendly_name: 'Channel 1'
+        value_template: "{{ is_state('binary_sensor.bs_g16', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.ch1
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.ch1
+
+  - platform: template
+    switches:
+      ch2:
+        friendly_name: 'Channel 2'
+        value_template: "{{ is_state('binary_sensor.bs_g20', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.ch2
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.ch2
+
+  - platform: template
+    switches:
+      ch3:
+        friendly_name: 'Channel 3'
+        value_template: "{{ is_state('binary_sensor.bs_g12', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.ch3
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.ch3
+
+  - platform: command_line
+    switches:
+      ch1_cmd:
+        command_on: "/usr/bin/python /home/homeassistant/.homeassistant/input_selector.py 1 5 16,20,12"
+
+  - platform: command_line
+    switches:
+      ch2_cmd:
+        command_on: "/usr/bin/python /home/homeassistant/.homeassistant/input_selector.py 2 5 16,20,12"
+
+  - platform: command_line
+    switches:
+      ch3_cmd:
+        command_on: "/usr/bin/python /home/homeassistant/.homeassistant/input_selector.py 3 5 16,20,12"
+
+
+binary_sensor:
+  platform: rpi_gpio
+  ports:
+    16: bs_g16
+    20: bs_g20
+    12: bs_g12
+  value_high: "On"
+  value_low: "Off"
+  invert_logic: false
+  bouncetime: 50
+  pull_mode: "DOWN"
