@@ -54,6 +54,7 @@ def togle_channel(channel):
             return True
         change_source()
         time.sleep(debounce_delay)
+     # TODO: Add return False in end of the method
 
     print("Failed to get sate of any of the pins")
     return False
