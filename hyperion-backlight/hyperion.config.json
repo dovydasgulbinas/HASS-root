@@ -89,7 +89,7 @@
 		{
 			"type"            : "linear",
 			"time_ms"         : 100,
-			"updateFrequency" : 20.0000,
+			"updateFrequency" : 40.0000,
 			"updateDelay"     : 0
 		}
 	},
@@ -100,7 +100,7 @@
 	{
 		"width" : 64,
 		"height" : 64,
-		"frequency_Hz" : 10.0,
+		"frequency_Hz" : 20.0,
 		"priority" : 890
 	},
 
@@ -124,8 +124,8 @@
 		"grabVideo" : true,
 		"grabPictures" : true,
 		"grabAudio" : true,
-		"grabMenu" : true,
-		"grabPause" : true,
+		"grabMenu" : false,
+		"grabPause" : false,
 		"grabScreensaver" : true,
 		"enable3DDetection" : true
 	},

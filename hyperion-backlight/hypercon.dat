@@ -1,13 +1,13 @@
 #Pesistent settings file for HyperCon
-#Fri Jun 16 00:35:20 EEST 2017
+#Sat Jun 17 00:09:34 EEST 2017
 ColorConfig.mTransforms[0].mBlueChannelRedSpinner=0
 ColorConfig.mTransforms[0].mRedChannelRedSpinner=255
-ColorConfig.mSmoothingUpdateFrequency_Hz=20.0
+ColorConfig.mSmoothingUpdateFrequency_Hz=40.0
 MiscConfig.mScreensaverOn=true
 Grabberv4l2Config.mMode=TwoD
 MiscConfig.mFrameGrabberWidth=64
 SshAndColorPickerConfig.FileName=hyperion.config.json
-MiscConfig.mFrameGrabberInterval_ms=100
+MiscConfig.mFrameGrabberInterval_ms=50
 SshAndColorPickerConfig.srcPath=/Users/hermes/Desktop/HASS-root/hyperion-backlight/.
 MiscConfig.mEffectColorBspinner=0
 MiscConfig.mPictureOn=true
@@ -102,7 +102,7 @@ MiscConfig.mBlackBorderEnabled=true
 LedFrameConstruction.bottomGapCnt=0
 MiscConfig.mJsonPort=19444
 ImageProcessConfig.mHorizontalDepth=0.08
-MiscConfig.mPauseOn=true
+MiscConfig.mPauseOn=false
 MiscConfig.mJsonfield="127.0.0.1\:19446"
 MiscConfig.mBoblightPriority=900
 DeviceConfig.mNameField=JEWLIGHTv3
@@ -119,5 +119,5 @@ MiscConfig.mFrameGrabberPriority=890
 ColorConfig.mTransforms[0].mGreenThreshold=0.0
 MiscConfig.mBlackbordermCombo=defaultt
 ColorConfig.mTransforms[0].mGreenGamma=2.5
-MiscConfig.mMenuOn=true
+MiscConfig.mMenuOn=false
 MiscConfig.mPathOE=/storage/hyperion/effects
